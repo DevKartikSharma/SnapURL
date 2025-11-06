@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🔗 SnapURL — Modern URL Shortener
+<!-- prettier-ignore -->
+# ✨ SnapURL
 
-## Getting Started
+> A lightweight URL shortener (Next.js + MongoDB)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```text
+┌───────────────────────────────────────────────────────────┐
+│ SnapURL — convert long URLs into short, memorable aliases │
+└───────────────────────────────────────────────────────────┘
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Core technologies
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- ⚛️ Next.js (app router)
+- ⚙️ React
+- 🎨 Tailwind CSS
+- 🗄️ MongoDB (Mongoose)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Important files (where to look)
 
-## Learn More
+| File | Purpose |
+|---|---|
+| `src/app/shortner/page.js` | Create short links (UI) |
+| `src/app/api/generate/route.js` | Save { url, alias } |
+| `src/app/api/fetch/route.js` | Retrieve { url } by alias |
+| `src/app/[alias]/page.js` | Resolve alias and redirect |
+| `src/app/models/Links.js` | Mongoose schema (url, alias, createdAt) |
+| `src/app/lib/mongoose.js` | DB connection helper |
 
-To learn more about Next.js, take a look at the following resources:
+## Why this repo is useful
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ✅ Minimal, focused codebase — fast to read and extend
+- ✅ Modern patterns — uses Next.js app-router conventions
+- ✅ Easy to integrate — drop into another app or extend with analytics/auth
+- ✅ Deployable on serverless platforms or Node servers (MongoDB required)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<div align="center">
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Built with ❤️ — Next.js & MongoDB**  ·  *Minimal • Extensible • Deployable*
+
+<pre>
+┌─────────────────────────────────────────┐
+│   SnapURL — shorten smart, share fast   │
+└─────────────────────────────────────────┘
