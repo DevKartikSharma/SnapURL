@@ -75,16 +75,16 @@ const Page = () => {
                 "font-mono text-[15px] bg-neutral-900 text-white rounded-lg shadow-md border border-neutral-700 p-4 w-100 flex wrap-anywhere  items-center overflow-clip"
             }
         />
-        <div className='bg-[rgba(168,168,168,0.24)] px-9 py-4 w-[25%] mt-30 flex justify-center items-center flex-col rounded-2xl  space-y-6 select-none '>
-            <div className='text-2xl font-light w-full '>
+        <div className='bg-[rgba(168,168,168,0.24)] px-9 py-4 w-120 max-sm:w-90 mt-30 flex justify-center items-center flex-col rounded-2xl  space-y-6 max-sm:space-y-3 select-none '>
+            <div className='text-2xl font-light max-sm:text-xl w-full '>
                 Generate your own
             </div>
             <div className='flex flex-col w-full space-y-2 '>
-                <input readOnly={Saved} ref={URL} className='bg-white w-full h-10 outline-none  rounded-lg pl-3' onChange={(e) => {
+                <input readOnly={Saved} ref={URL} className='bg-white w-full h-10 outline-none  rounded-lg pl-3 max-sm:text-[15px]' onChange={(e) => {
                     setfullurl(e.target.value)
                     console.log(e.target.value);
                 }} type="text" placeholder='Enter URL' />
-                <input readOnly={Saved} ref={ALIAS} className='bg-white w-full h-10 outline-none  rounded-lg pl-3' onKeyDown={(e) => {
+                <input readOnly={Saved} ref={ALIAS} className='bg-white max-sm:text-[15px] w-full h-10 outline-none  rounded-lg pl-3' onKeyDown={(e) => {
                     if (e.key === 'Enter') handlesubmit()
                 }}
                     onChange={(e) => {
@@ -94,14 +94,14 @@ const Page = () => {
                 {(Saved ?
                     <button onClick={() => { clear() }} className='bg-black text-white rounded-2xl font-light mt-2 text-lg w-full h-12'>One more?</button>
                     :
-                    <button onClick={() => { handlesubmit() }} className='bg-black text-white rounded-2xl font-light mt-2 text-lg w-full h-12'>Generate</button>
+                    <button onClick={() => { handlesubmit() }} className='bg-black text-white rounded-2xl font-light mt-2 text-lg  w-full h-12'>Generate</button>
                 )}
             </div>
         </div>
         {
-            (Saved && <><div className='bg-[rgba(168,168,168,0.24)] px-9 py-4 w-[25%] mt-10 flex justify-center items-center flex-col rounded-2xl  space-y-6 select-none '>
+            (Saved && <><div className='bg-[rgba(168,168,168,0.24)] px-9 py-4 w-120 max-sm:w-90 mt-10 flex justify-center items-center flex-col rounded-2xl  space-y-6 select-none '>
                 <div className='flex flex-col w-full'>
-                    <h1 className='font-light text-2xl'>Your URL</h1>
+                    <h1 className='font-light text-2xl max-sm:text-xl'>Your URL</h1>
                     <div className='flex justify-between items-center border p-3 rounded-2xl mt-3 ml-3 bg-white'>
                         <div className='font-light  text-md select-text selection:bg-[rgb(202,202,202)]'>{`${process.env.NEXT_PUBLIC_BASE_URL + AliasfromDB}`}</div>
                         <button onClick={() => { copy() }}>
